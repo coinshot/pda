@@ -24,3 +24,4 @@ class Occurrence(models.Model):
     db_table = u'occurrences'
     verbose_name = _('occurrence')
     verbose_name_plural = _('occurrences')
+    app_label = 'planner'

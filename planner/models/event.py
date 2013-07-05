@@ -16,3 +16,4 @@ class Event(models.Model):
     db_table = u'events'
     verbose_name = _('event')
     verbose_name_plural = _('events')
+    app_label = 'planner'

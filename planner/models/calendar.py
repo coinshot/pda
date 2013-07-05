@@ -13,3 +13,4 @@ class Calendar(models.Model):
     db_table = u'calendars'
     verbose_name = _('calendar')
     verbose_name_plural = _('calendars')
+    app_label = 'planner'

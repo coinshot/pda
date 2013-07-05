@@ -17,3 +17,4 @@ class Reminder(models.Model):
     db_table = u'reminders'
     verbose_name = _('reminder')
     verbose_name_plural = _('reminders')
+    app_label = 'planner'

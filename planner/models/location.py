@@ -12,3 +12,4 @@ class Location(models.Model):
     db_table = u'locations'
     verbose_name = _('location')
     verbose_name_plural = _('locations')
+    app_label = 'planner'
