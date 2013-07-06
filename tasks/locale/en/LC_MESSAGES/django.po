@@ -17,50 +17,18 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: models/calendar.py:14
-msgid "calendar"
+#: models/task.py:11
+msgid "task"
 msgstr ""
 
-#: models/calendar.py:15
-msgid "calendars"
+#: models/task.py:12
+msgid "tasks"
 msgstr ""
 
-#: models/event.py:17
-msgid "event"
+#: models/task_tags.py:16
+msgid "task tag"
 msgstr ""
 
-#: models/event.py:18
-msgid "events"
-msgstr ""
-
-#: models/event_tag.py:16
-msgid "event tag"
-msgstr ""
-
-#: models/event_tag.py:17
-msgid "event tags"
-msgstr ""
-
-#: models/location.py:13
-msgid "location"
-msgstr ""
-
-#: models/location.py:14
-msgid "locations"
-msgstr ""
-
-#: models/occurrence.py:25
-msgid "occurrence"
-msgstr ""
-
-#: models/occurrence.py:26
-msgid "occurrences"
-msgstr ""
-
-#: models/reminder.py:18
-msgid "reminder"
-msgstr ""
-
-#: models/reminder.py:19
-msgid "reminders"
+#: models/task_tags.py:17
+msgid "task tags"
 msgstr ""

@@ -130,7 +130,7 @@ ROOT_URLCONF = 'pda_project.urls'
 WSGI_APPLICATION = 'pda_project.wsgi.application'
 
 TEMPLATE_DIRS = (
-    ROOT_DIR + "/templates/"
+    ROOT_DIR + "/templates/",
 )
 
 INSTALLED_APPS = (
