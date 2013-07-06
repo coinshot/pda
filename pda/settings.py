@@ -143,8 +143,10 @@ INSTALLED_APPS = (
   'notes',
   'planner',
   'tasks',
+  'tagger',
   'compressor',
   'crispy_forms',
+  'polymorphic',
 )
 
 # A sample logging configuration. The only tangible logging
