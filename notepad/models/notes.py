@@ -13,4 +13,4 @@ class Note(models.Model):
     db_table = u'notes'
     verbose_name = _('note')
     verbose_name_plural = _('notes')
-    app_label = 'notes'
+    app_label = 'notepad'
