@@ -140,13 +140,15 @@ INSTALLED_APPS = (
   'django.contrib.sites',
   'django.contrib.messages',
   'django.contrib.staticfiles',
-  'notepad',
-  'planner',
-  'tasks',
-  'tagger',
+  # Third-party apps
   'compressor',
   'crispy_forms',
   'polymorphic',
+  # Project apps
+  'tagger',
+  'notepad',
+  'planner',
+  'tasks',
 )
 
 # A sample logging configuration. The only tangible logging

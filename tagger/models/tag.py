@@ -2,10 +2,8 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils.translation import ugettext, ugettext_lazy as _
 
-from polymorphic import PolymorphicModel
 
-
-class Tag(PolymorphicModel):
+class Tag(models.Model):
   name = models.CharField(max_length = 30)
   user = models.ForeignKey(User, related_name = 'owner')
   created_at = models.DateTimeField(auto_now_add = True)

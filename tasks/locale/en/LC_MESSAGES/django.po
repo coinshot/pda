@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-07 01:37+0800\n"
+"POT-Creation-Date: 2013-07-07 22:57+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,18 +17,18 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: models/task.py:11
+#: models/task.py:12
 msgid "task"
 msgstr ""
 
-#: models/task.py:12
+#: models/task.py:13
 msgid "tasks"
 msgstr ""
 
-#: models/task_tags.py:16
+#: models/task_tag.py:14
 msgid "task tag"
 msgstr ""
 
-#: models/task_tags.py:17
+#: models/task_tag.py:15
 msgid "task tags"
 msgstr ""
