@@ -1,4 +1,4 @@
-# Django settings for pda_project project.
+# Django settings for pda project.
 
 import socket
 import os.path
@@ -124,10 +124,10 @@ MIDDLEWARE_CLASSES = (
   # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'pda_project.urls'
+ROOT_URLCONF = 'pda.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = 'pda_project.wsgi.application'
+WSGI_APPLICATION = 'pda.wsgi.application'
 
 TEMPLATE_DIRS = (
     ROOT_DIR + "/templates/",
