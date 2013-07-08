@@ -103,6 +103,8 @@ STATICFILES_FINDERS = (
   'django.contrib.staticfiles.finders.AppDirectoriesFinder',
   'django.contrib.staticfiles.finders.DefaultStorageFinder',
   'compressor.finders.CompressorFinder',
+  'coffeescript.finders.CoffeescriptFinder',
+  'less.finders.LessFinder',
 )
 
 # Make this unique, and don't share it with anybody.
@@ -145,6 +147,8 @@ INSTALLED_APPS = (
   'compressor',
   'crispy_forms',
   'polymorphic',
+  'less',
+  'coffeescript',
   # Project apps
   'tagger',
   'notepad',

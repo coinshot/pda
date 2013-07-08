@@ -9,26 +9,41 @@ Personal Data Assistant app which includes a planner (calendar), task, and notep
   * psycopg2 (http://initd.org/psycopg/)
 
             # Installation:
-            $ [sudo] pip install psycopg2
+            $ pip install psycopg2
 
   * polymorphic (https://github.com/chrisglass/django_polymorphic)
 
             # Installation
-            $ [sudo] pip install django_polymorphic
+            $ pip install django_polymorphic
 
-##### Template
+##### Template & Assets
 
-  *   django-crispy-forms (http://django-crispy-forms.readthedocs.org/en/latest/install.html#installing-django-crispy-forms)
+  * django-crispy-forms (http://django-crispy-forms.readthedocs.org/en/latest/install.html#installing-django-crispy-forms)
 
             # Installation
-            $ [sudo] pip install django-crispy-forms
+            $ pip install django-crispy-forms
+
+  * django-coffeescript (https://pypi.python.org/pypi/django-coffeescript/)
+
+            # Installation
+            $ pip install django-coffeescript
+
+  * lessc (http://lesscss.org/#-client-side-usage)
+
+            # Installation (requires npm - Node Package Manager)
+            $ npm install less
+
+  * django-less (https://github.com/andreyfedoseev/django-less)
+
+            # Installation
+            $ pip install django-less
 
 ##### Optimization
 
   *   compressor (https://github.com/jezdez/django_compressor)
 
             # Installation
-            $ [sudo] pip install django_compressor
+            $ pip install django_compressor
 
 ##### Localization
 
