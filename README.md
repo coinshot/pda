@@ -14,7 +14,7 @@ Personal Data Assistant app which includes a planner (calendar), task, and notep
   * polymorphic (https://github.com/chrisglass/django_polymorphic)
 
             # Installation
-            $ [sudo] pip install django_install
+            $ [sudo] pip install django_polymorphic
 
 ##### Template
 
