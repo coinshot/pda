@@ -23,6 +23,11 @@ Personal Data Assistant app which includes a planner (calendar), task, and notep
             # Installation
             $ pip install django-crispy-forms
 
+  * coffescript (http://jashkenas.github.io/coffee-script/)
+
+            # Installation
+            $ npm install -g coffee-script
+
   * django-coffeescript (https://pypi.python.org/pypi/django-coffeescript/)
 
             # Installation
