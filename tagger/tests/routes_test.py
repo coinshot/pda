@@ -3,13 +3,32 @@ from django.test import TestCase
 
 from tagger.views import *
 
-# Tagger routes
-# Main Tags Index (needs to contain tag and counts)
-# New/Create Tag
-# Edit/Updat tag
-# Delete Tag (cascade to children)
-# Find or create tag (for app calls)
 class TaggerRoutesTest(TestCase):
   def test_index(self):
     r = self.client.get(reverse('tagger_main'))
+    self.assertEqual(r.status_code, 200)
+
+  def test_new(self):
+    r = self.client.get(reverse('tagger_new'))
+    self.assertEqual(r.status_code, 200)
+
+    r = self.client.post(reverse('tagger_new'))
+    self.assertEqual(r.status_code, 200)
+
+  def test_update(self):
+    r = self.client.get(reverse('tagger_update'))
+    self.assertEqual(r.status_code, 200)
+
+    r = self.client.post(reverse('tagger_update'))
+    self.assertEqual(r.status_code, 200)
+
+  def test_delete(self):
+    r = self.client.get(reverse('tagger_delete'))
+    self.assertEqual(r.status_code, 304)
+
+    r = self.client.post(reverse('tagger_update'))
+    self.assertEqual(r.status_code, 200)
+
+  def test_search(self):
+    r = self.client.get(reverse('tagger_search'))
     self.assertEqual(r.status_code, 200)

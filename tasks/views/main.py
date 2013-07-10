@@ -5,27 +5,18 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.views.generic.edit import FormView
 
-from tagger.lib.forms import *
-
 
 class MainView(TemplateView):
-  template_name = 'tagger/index.html'
+  template_name = 'tasks/index.html'
 
+class NewView(TemplateView):
+  template_name = 'tasks/new.html'
 
-class NewView(FormView):
-  template_name = 'tagger/new.html'
-  form_class = NewForm
-
-
-class UpdateView(FormView):
-  template_name = 'tagger/update.html'
-  form_class = UpdateForm
-
+class UpdateView(TemplateView):
+  template_name = 'tasks/update.html'
 
 class DeleteView(TemplateView):
-  template_name = 'tagger/delete.html'
-
+  template_name = 'tasks/delete.html'
 
 class SearchView(TemplateView):
-  template_name = 'tagger/search.html'
-
+  template_name = 'tasks/search.html'
