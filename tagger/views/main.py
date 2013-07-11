@@ -5,9 +5,9 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.views.generic.edit import FormView
 
-from tagger.lib.forms import *
+from tagger.lib.forms import SearchTagForm
 
 
 class MainView(FormView):
   template_name = 'tagger/index.html'
-  form_class = SearchForm
+  form_class = SearchTagForm

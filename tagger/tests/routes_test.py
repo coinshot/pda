@@ -13,6 +13,14 @@ class TaggerRoutesTest(TestCase):
     r = self.client.post(reverse('tagger_main'))
     self.assertEqual(r.status_code, 200)
 
+  def test_search(self):
+    # GET
+    r = self.client.get(reverse('tagger_search'))
+    self.assertEqual(r.status_code, 200)
+    # POST
+    r = self.client.post(reverse('tagger_search'))
+    self.assertEqual(r.status_code, 200)
+
   def test_new(self):
     # GET
     r = self.client.get(reverse('tagger_new'))

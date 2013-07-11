@@ -7,11 +7,11 @@ from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
 
 
-class NewForm(forms.Form):
+class NewTagForm(forms.Form):
   name = forms.CharField(max_length = 200)
 
   def __init__(self, *args, **kwargs):
-    super(NewForm, self).__init__(*args, **kwargs)
+    super(NewTagForm, self).__init__(*args, **kwargs)
     self.helper = FormHelper()
     self.helper.form_id = 'new_tag_form'
     self.helper.form_method = 'post'
