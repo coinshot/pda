@@ -6,6 +6,7 @@ from django.core.validators import validate_email
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
 
+
 class SearchForm(forms.Form):
   name = forms.CharField(max_length = 200)
 

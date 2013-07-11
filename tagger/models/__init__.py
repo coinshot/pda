@@ -1,1 +1,1 @@
-from tagger.models.tag import *
+from tag import *

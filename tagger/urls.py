@@ -3,6 +3,7 @@ from django.conf.urls.defaults import *
 
 from tagger import views
 
+
 urlpatterns = patterns('.tagger.views',
   url(r'^$', views.MainView.as_view(), name='tagger_main'),
   url(r'^search/$', views.MainView.as_view(), name='tagger_search'),

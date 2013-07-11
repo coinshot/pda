@@ -1,5 +1,5 @@
-from tagger.tests.routes_test import *
-# from tagger.tests.views.main_view_test import *
+from routes_test import *
+# from main_view_test import *
 
 
 #starts the test suite

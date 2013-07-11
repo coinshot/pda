@@ -14,10 +14,10 @@ class TaggerRoutesTest(TestCase):
     self.assertEqual(r.status_code, 200)
 
   def test_new(self):
-
+    # GET
     r = self.client.get(reverse('tagger_new'))
     self.assertEqual(r.status_code, 200)
-
+    # POST
     r = self.client.post(reverse('tagger_new'))
     self.assertEqual(r.status_code, 200)
 
@@ -31,8 +31,9 @@ class TaggerRoutesTest(TestCase):
 
   def test_delete(self):
     # GET
-    r = self.client.get(reverse('tagger_delete'))
-    self.assertEqual(r.status_code, 302)
+    r = self.client.get(reverse('tagger_delete'), follow = True)
+    self.assertEqual(r.status_code, 200)
+    self.assertRedirects(r, reverse('tagger_main'))
     # POST
     r = self.client.post(reverse('tagger_update'))
     self.assertEqual(r.status_code, 200)
