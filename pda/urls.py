@@ -11,5 +11,5 @@ urlpatterns = patterns('',
   # url(r'^notepad/', include('notepad.urls')),
   # url(r'^planner/', include('planner.urls')),
   url(r'^tagger/', include('tagger.urls')),
-  # url(r'^tasks/', include('tasks.urls')),
+  url(r'^tasks/', include('tasks.urls')),
 )

@@ -1,2 +1,3 @@
-from tasks.models.task import *
-from tasks.models.task_tag import *
+from task import *
+from task_item import *
+from task_tag import *

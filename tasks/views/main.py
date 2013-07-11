@@ -9,6 +9,9 @@ from django.views.generic.edit import FormView
 class MainView(TemplateView):
   template_name = 'tasks/index.html'
 
+class ShowView(TemplateView):
+  template_name = 'tasks/new.html'
+
 class NewView(TemplateView):
   template_name = 'tasks/new.html'
 
@@ -20,3 +23,18 @@ class DeleteView(TemplateView):
 
 class SearchView(TemplateView):
   template_name = 'tasks/search.html'
+
+class ItemsView(TemplateView):
+  template_name = 'tasks/index.html'
+
+class ItemNewView(TemplateView):
+  template_name = 'tasks/index.html'
+
+class ItemShowView(TemplateView):
+  template_name = 'tasks/index.html'
+
+class ItemUpdateView(TemplateView):
+  template_name = 'tasks/index.html'
+
+class ItemDeleteView(TemplateView):
+  template_name = 'tasks/index.html'
