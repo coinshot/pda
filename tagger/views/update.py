@@ -8,6 +8,6 @@ from django.views.generic.edit import FormView
 from tagger.lib.forms import *
 
 
-class MainView(FormView):
-  template_name = 'tagger/index.html'
-  form_class = SearchForm
+class UpdateView(FormView):
+  template_name = 'tagger/update.html'
+  form_class = UpdateForm

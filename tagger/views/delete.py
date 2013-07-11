@@ -8,6 +8,8 @@ from django.views.generic.edit import FormView
 from tagger.lib.forms import *
 
 
-class MainView(FormView):
-  template_name = 'tagger/index.html'
-  form_class = SearchForm
+class DeleteView(TemplateView):
+  template_name = 'tagger/delete.html'
+
+  def get(self, request, *args, **kwargs):
+    return HttpResponseRedirect(reverse('tagger_main'))
