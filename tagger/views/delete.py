@@ -8,8 +8,9 @@ from django.views.generic.edit import FormView
 from tagger.lib.forms import *
 
 
-class DeleteView(TemplateView):
+class DeleteView(FormView):
   template_name = 'tagger/delete.html'
+  form_class = UpdateTagForm
 
   def get(self, request, *args, **kwargs):
     return HttpResponseRedirect(reverse('tagger_main'))
