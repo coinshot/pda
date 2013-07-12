@@ -8,7 +8,7 @@ class Task(models.Model):
   description = models.TextField()
   completed = models.BooleanField()
   user = models.ForeignKey(User)
-  expected_at = models.DateTimeField()
+  expected_at = models.DateTimeField(null = True)
   created_at = models.DateTimeField(auto_now_add = True)
   updated_at = models.DateTimeField(auto_now = True)
   class Meta:
