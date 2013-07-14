@@ -2,25 +2,90 @@
 
 @background: #CCC;
 @color: #333;
+@font: 14px Arial, Verdana, Helvetica;
 
+
+//-- Base Styles -----
 body {
   background: @background;
   margin: 0;
   padding: 0;
   color: @color;
+  font: @font;
 }
 
-header {
-  height: 60px;
+a {
+  color: #333;
+  text-decoration: none;
 }
 
-div.body {
+a:hover {
+  color: @color;
+  border-bottom: 1px dotted #FFF;
+}
+
+.rounded {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  border: 1px solid #999;
+  background: #DEDEDE;
+}
+
+.clear {
+  clear: both;
+}
+
+header, div.body, footer {
   width: 75%;
   min-width: 800px;
-  min-height: 400px;
   margin: 0 auto;
 }
 
+
+//-- Header Styles -----
+header {
+  margin-bottom: 10px;
+  height: 60px;
+
+  div.main-menu {
+    margin-left: 15px;
+    float: left;
+    position: absolute;
+    top: 40px;
+  }
+}
+
+
+//-- Body Styles -----
+div.body {
+  min-height: 400px;
+  margin: 0 auto;
+
+  .left-nav {
+    float: left;
+    width: 200px;
+    min-height: 300px;
+    border: 1px solid #ff0000;
+  }
+
+  .page-title {
+    padding: 3px 5px 3px 15px;
+    margin-bottom: 20px;
+
+    h2 {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  .main-content {
+    margin-left: 210px;
+  }
+}
+
+
+//-- Footer Styles -----
 footer {
 
 }

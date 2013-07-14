@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils.translation import ugettext, ugettext_lazy as _
 
-from tasks.models.task import Task
+from task import *
 
 
 class TaskItem(models.Model):

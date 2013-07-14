@@ -1,13 +1,13 @@
 from django.conf.urls import patterns, include, url, static
-from django.conf.urls.defaults import *
+from django.conf.urls import *
 
-from tagger import views
+from views import *
 
 
 urlpatterns = patterns('.tagger.views',
-  url(r'^$', views.MainView.as_view(), name='tagger_main'),
-  url(r'^search/$', views.MainView.as_view(), name='tagger_search'),
-  url(r'^new/$', views.NewView.as_view(), name='tagger_new'),
-  url(r'^update/(?P<pk>\d+)$', views.UpdateView.as_view(), name='tagger_update'),
-  url(r'^delete/$', views.DeleteView.as_view(), name='tagger_delete'),
+  url(r'^$', MainTagView.as_view(), name='tagger_main'),
+  url(r'^search/$', MainTagView.as_view(), name='tagger_search'),
+  url(r'^new/$', NewTagView.as_view(), name='tagger_new'),
+  url(r'^update/(?P<pk>\d+)$', UpdateTagView.as_view(), name='tagger_update'),
+  url(r'^delete/$', DeleteTagView.as_view(), name='tagger_delete'),
 )

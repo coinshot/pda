@@ -5,12 +5,9 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.views.generic.edit import FormView
 
-from forms import *
+# from tagger.lib.forms import SearchTagForm
 
 
-class DeleteTagView(FormView):
-  template_name = 'tagger/delete.html'
-  form_class = UpdateTagForm
-
-  def get(self, request, *args, **kwargs):
-    return HttpResponseRedirect(reverse('tagger_main'))
+class MainPlannerView(TemplateView):
+  template_name = 'planner/index.html'
+  # form_class = SearchTagForm

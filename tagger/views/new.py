@@ -5,9 +5,9 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.views.generic.edit import FormView
 
-from tagger.lib.forms import NewTagForm
+from forms import NewTagForm
 
 
-class NewView(FormView):
+class NewTagView(FormView):
   template_name = 'tagger/new.html'
   form_class = NewTagForm

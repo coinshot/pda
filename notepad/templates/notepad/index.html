@@ -1,0 +1,15 @@
+{% extends 'layouts/main.html' %}
+
+{% block page_title %}Notepad{% endblock %}
+
+{% block main_content %}
+
+{% if object_list.count > 0 %}
+{% for notes in object_list %}
+
+{% endfor %}
+{% else %}
+  <div>No notes found</div>
+{% endif %}
+
+{% endblock %}

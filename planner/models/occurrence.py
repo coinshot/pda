@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 from planner.models.event import Event
 from django.utils.translation import ugettext, ugettext_lazy as _
 
+from event import *
+
 
 class Occurrence(models.Model):
   TIMEFRAMES = (

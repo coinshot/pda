@@ -20,12 +20,19 @@
 
 </div>
 <header>
-
+<div class="main-menu">
+  <a href="/">Home</a>&nbsp;&middot;
+  <a href="{% url 'planner_main' %}">Planner</a>&nbsp;&middot;
+  <a href="{% url 'tasks_main' %}">Tasks</a>&nbsp;&middot;
+  <a href="{% url 'notepad_main' %}">Notepad</a>&nbsp;&middot;
+  <a href="{% url 'tagger_main' %}">Tags</a>
+</div>
 </header>
+
 <div class="body">
   {% block content %}{% endblock %}<br>
-  {{ STATIC_URL }}css/styles.css
 </div>
+
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 {% compress js %}
 <script src="{{ STATIC_URL }}uni_form/uni-form.jquery.js" type="text/javascript"></script>
@@ -33,6 +40,7 @@
 {% block js %}
 {% endblock %}
 {% endcompress %}
+
 <footer>
 
 </footer>
