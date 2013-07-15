@@ -27,10 +27,20 @@
   <a href="{% url 'notepad_main' %}">Notepad</a>&nbsp;&middot;
   <a href="{% url 'tagger_main' %}">Tags</a>
 </div>
+<div class="user-menu">
+  {% if user.id > 0 %}
+    <a href="{% url 'user_logout' %}">Logout</a>
+  {% else %}
+    <a href="{% url 'user_login' %}">Login</a>
+  {% endif %}
+</div>
+<div class="rounded site-title"><h2>Django-PDA</h2></div>
 </header>
 
 <div class="body">
-  {% block content %}{% endblock %}<br>
+  <div class="content-wrapper">
+    {% block content %}{% endblock %}<br>
+  </div>
 </div>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
@@ -42,10 +52,10 @@
 {% endcompress %}
 
 <footer>
-
+  <div class="rounded debug">
+    <div><strong>Debug</strong></div><br>
+    request.user: {{ user.id }}<br>
+  </div>
 </footer>
-<div id="debug">
-
-</div>
 </body>
 </html>

@@ -150,9 +150,10 @@ INSTALLED_APPS = (
   'less',
   'coffeescript',
   # Project apps
-  'tagger',
+  'accounts',
   'notepad',
   'planner',
+  'tagger',
   'tasks',
 )
 
@@ -184,3 +185,5 @@ LOGGING = {
     },
   }
 }
+
+LOGIN_REDIRECT_URL = '/'

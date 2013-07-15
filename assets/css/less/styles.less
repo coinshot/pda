@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-@background: #CCC;
+@background: #DDD;
 @color: #333;
 @font: 14px Arial, Verdana, Helvetica;
 
@@ -15,7 +15,7 @@ body {
 }
 
 a {
-  color: #333;
+  color: green;
   text-decoration: none;
 }
 
@@ -24,19 +24,23 @@ a:hover {
   border-bottom: 1px dotted #FFF;
 }
 
+h3 {
+  margin: 0 10px 20px 10px;
+  padding-left: 10px;
+  border-bottom: 1px solid green;
+}
+
 .rounded {
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
-  border: 1px solid #999;
-  background: #DEDEDE;
 }
 
 .clear {
   clear: both;
 }
 
-header, div.body, footer {
+header, div.body {
   width: 75%;
   min-width: 800px;
   margin: 0 auto;
@@ -45,14 +49,30 @@ header, div.body, footer {
 
 //-- Header Styles -----
 header {
-  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 40px;
   height: 60px;
 
   div.main-menu {
-    margin-left: 20px;
     float: left;
-    position: absolute;
-    top: 40px;
+    margin: 0 0 5px 20px;
+  }
+
+  div.user-menu {
+    float: right;
+    margin: 0 20px 5px 0;
+  }
+
+  .site-title {
+    padding: 10px 5px 10px 18px;
+    border: 1px solid #FFF;
+    background: #EEE;
+    clear: both;
+
+    h2 {
+      margin: 0;
+      padding: 0;
+    }
   }
 }
 
@@ -62,11 +82,8 @@ div.body {
   min-height: 400px;
   margin: 0 auto;
 
-  .left-nav {
-    float: left;
-    width: 200px;
-    min-height: 300px;
-    border: 1px solid #ff0000;
+  .content-wrapper {
+    margin: 0 20px;
   }
 
   .page-title {
@@ -91,5 +108,16 @@ div.body {
 
 //-- Footer Styles -----
 footer {
+  margin-top: 50px;
+  background: #666;
+  min-height: 200px;
+  border-top: 1px solid #FFF;
 
+  .debug {
+    margin: 30px;
+    padding: 10px;
+    min-height: 40px;
+    color: #EEE;
+    background: #999;
+  }
 }
