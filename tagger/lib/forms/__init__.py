@@ -1,3 +1,3 @@
-from new import *
-from update import *
-from search import *
+from new import NewTagForm
+from update import UpdateTagForm
+from search import SearchTagForm

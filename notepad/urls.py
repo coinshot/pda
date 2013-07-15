@@ -3,7 +3,7 @@ from django.conf.urls import *
 
 from notepad.views import *
 
-urlpatterns = patterns('.planner.views',
+urlpatterns = patterns('',
   url(r'^$', MainNotepadView.as_view(), name='notepad_main'),
   # url(r'^search/$', MainNotepadView.as_view(), name='tagger_search'),
   url(r'^new/$', NewNotepadView.as_view(), name='notepad_new'),

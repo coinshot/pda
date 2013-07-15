@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.utils.translation import ugettext, ugettext_lazy as _
 
 from tagger.models.tag import *
-from event import *
+from event import Event
 
 
 class EventTag(models.Model):

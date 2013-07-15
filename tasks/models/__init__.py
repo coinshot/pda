@@ -1,3 +1,3 @@
-from task import *
-from task_item import *
-from task_tag import *
+from task import Task
+from task_item import TaskItem
+from task_tag import TaskTag

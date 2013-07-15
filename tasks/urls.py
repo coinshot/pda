@@ -7,7 +7,7 @@ from views import *
 urlpatterns = patterns('pda.tasks.views',
   url(r'^$', MainTaskView.as_view(), name='tasks_main'),
   url(r'^search/$', MainTaskView.as_view(), name='tasks_search'),
-  url(r'^(?P<pk>\d+)$', ShowTaskView.as_view(), name='tasks_show'),
+  # url(r'^(?P<pk>\d+)$', ShowTaskView.as_view(), name='tasks_show'),
   # url(r'^new/$', views.NewView.as_view(), name='tasks_new'),
   # url(r'^update/(?P<pk>\d+)$', views.UpdateView.as_view(), name='tasks_update'),
   # url(r'^delete/$', views.DeleteView.as_view(), name='tasks_delete'),

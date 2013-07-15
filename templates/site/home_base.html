@@ -1,0 +1,6 @@
+{% extends "layouts/base.html" %}
+{% load less %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ STATIC_URL }}{% less "css/less/main.less" %}" type="text/css">
+{% endblock %}

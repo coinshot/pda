@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.views.generic.edit import FormView
 
-from forms import NewTagForm
+from ..lib.forms import NewTagForm
 
 
 class NewTagView(FormView):

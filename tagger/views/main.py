@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.views.generic.edit import FormView
 
-from forms import SearchTagForm
+from ..lib.forms import SearchTagForm
 
 
 class MainTagView(FormView):

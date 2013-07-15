@@ -5,10 +5,10 @@ from django.shortcuts import render
 from django.views.generic import TemplateView, DetailView, DeleteView
 from django.views.generic.edit import FormView
 
-from forms import UpdateTaskForm
-from forms import SearchTaskForm
+from ..lib.forms import UpdateTaskForm
+from ..lib.forms import SearchTaskForm
 
-from models import Task
+from ..models import Task
 
 
 class MainTaskView(FormView):

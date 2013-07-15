@@ -6,7 +6,7 @@ from django.views.generic import TemplateView
 from django.views.generic.edit import FormView
 
 # from tagger.lib.forms import SearchTagForm
-from models.note import Note
+from ..models.note import Note
 
 
 class NewNotepadView(TemplateView):
