@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<h3>Notepad</h3>
+<h3>Notepad <span class="record-menu"><a href="{% url 'notepad_new' %}">Create New Note</a></span></h3>
 
 {% if object_list.count > 0 %}
   {% for notes in object_list %}
