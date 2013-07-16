@@ -1,10 +1,17 @@
 {% extends 'layouts/main.html' %}
+{% load crispy_forms_tags %}
 
 {% block content %}
 
 <h3>Notepad <span class="record-menu"><a href="{% url 'notepad_new' %}">Create New Note</a></span></h3>
-
+<form id="search_form" name="search_form" method="get" class="search-form clear">
+  {% csrf_token %}
+  <a href="/notepad">Clear</a>
+  <input id="search_keyword" name="kw" type="text" placeholder="Search Note" value="{{ request.GET.kw }}">
+  {{ request.GET.kw }}
+</form>
 {% if object_list.count > 0 %}
+  {{ form }}
   <ul>
   {% for notes in object_list %}
     <li>{{ notes.name }}</li>
