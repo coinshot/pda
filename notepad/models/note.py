@@ -9,6 +9,7 @@ class Note(models.Model):
   user = models.ForeignKey(User)
   created_at = models.DateTimeField(auto_now_add = True)
   updated_at = models.DateTimeField(auto_now = True)
+
   class Meta:
     db_table = u'notes'
     verbose_name = _('note')

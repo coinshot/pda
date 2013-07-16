@@ -5,9 +5,11 @@
 <h3>Notepad <span class="record-menu"><a href="{% url 'notepad_new' %}">Create New Note</a></span></h3>
 
 {% if object_list.count > 0 %}
+  <ul>
   {% for notes in object_list %}
-
+    <li>{{ notes.name }}</li>
   {% endfor %}
+  </ul>
 {% else %}
   <div>No notes found</div>
 {% endif %}

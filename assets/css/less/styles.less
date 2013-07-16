@@ -2,7 +2,9 @@
 
 @background: #DDD;
 @color: #333;
-@font: 14px Arial, Verdana, Helvetica;
+@font-size: 14px;
+@font-family: Arial, Verdana, Helvetica;
+@font: @font-size @font-family;
 
 
 //-- Base Styles -----
@@ -116,14 +118,21 @@ div.body {
     float: left;
     width: 100px;
   }
+}
+
+.controls {
+  font-family: @font-family;
 
   input {
     width: 300px;
   }
-}
 
-.controls {
-  font-size: 12px;
+  textarea {
+    width: 304px;
+    height: 200px;
+    font-size: 12px;
+    font-family: @font-family;
+  }
 
   .help-block {
     padding: 0;
