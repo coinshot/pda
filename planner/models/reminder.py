@@ -10,7 +10,7 @@ class Reminder(models.Model):
     ('days', 'Days'),
     ('weeks', 'Weeks'),
   )
-  user = models.ForeignKey(User)
+  owner = models.ForeignKey(User)
   created_at = models.DateTimeField(auto_now_add = True)
   updated_at = models.DateTimeField(auto_now = True)
   class Meta:

@@ -9,6 +9,7 @@ from .note import Note
 class NoteTag(models.Model):
   note = models.ForeignKey(Note)
   tag = models.ForeignKey(Tag)
+  owner = models.ForeignKey(User)
   class Meta:
     db_table = u'note_tags'
     verbose_name = _('note tag')

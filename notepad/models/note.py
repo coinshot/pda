@@ -6,7 +6,7 @@ from django.utils.translation import ugettext, ugettext_lazy as _
 class Note(models.Model):
   name = models.CharField(max_length = 250)
   note = models.TextField()
-  user = models.ForeignKey(User)
+  owner = models.ForeignKey(User)
   created_at = models.DateTimeField(auto_now_add = True)
   updated_at = models.DateTimeField(auto_now = True)
 

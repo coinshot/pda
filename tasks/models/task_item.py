@@ -9,7 +9,7 @@ class TaskItem(models.Model):
   name = models.CharField(max_length = 250)
   completed = models.BooleanField()
   task = models.ForeignKey(Task)
-  user = models.ForeignKey(User)
+  owner = models.ForeignKey(User)
   expected_at = models.DateTimeField(null = True)
   created_at = models.DateTimeField(auto_now_add = True)
   updated_at = models.DateTimeField(auto_now = True)

@@ -144,11 +144,12 @@ INSTALLED_APPS = (
   'django.contrib.messages',
   'django.contrib.staticfiles',
   # Third-party apps
+  'coffeescript',
   'compressor',
   'crispy_forms',
-  'polymorphic',
   'less',
-  'coffeescript',
+  'polymorphic',
+  'south',
   # Project apps
   'accounts',
   'notepad',

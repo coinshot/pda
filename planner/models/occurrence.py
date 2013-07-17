@@ -14,7 +14,7 @@ class Occurrence(models.Model):
     ('YEARLY', 'Yearly'),
   )
   event = models.ForeignKey(Event)
-  user = models.ForeignKey(User)
+  owner = models.ForeignKey(User)
   repeat = models.PositiveSmallIntegerField()
   timeframe = models.CharField(max_length = 10, choices = TIMEFRAMES)
   start_at = models.DateField()

@@ -6,7 +6,7 @@ from django.utils.translation import ugettext, ugettext_lazy as _
 class Event(models.Model):
   name = models.CharField(max_length = 250)
   description = models.TextField()
-  user = models.ForeignKey(User)
+  owner = models.ForeignKey(User)
   start_at = models.DateTimeField()
   end_at = models.DateTimeField()
   whole_day = models.BooleanField()

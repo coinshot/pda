@@ -8,7 +8,7 @@ class OwnedMixin(object):
     Restrict retrieval of an object if user does not own the record.
     '''
     obj = super(OwnedMixin, self).get_object()
-    if obj.user != self.request.user:
+    if obj.owner != self.request.user:
       raise Http404
     return obj
 
@@ -17,12 +17,12 @@ class OwnedMixin(object):
     Filter queryset to records owned by the current user.
     '''
     result = super(OwnedMixin, self).get_queryset()
-    result = result.filter(user = self.request.user)
+    result = result.filter(owner = self.request.user)
     return result
 
   def form_valid(self, form):
     '''
     Automatically insert user ownership to record before save().
     '''
-    form.instance.user = self.request.user
+    form.instance.owner = self.request.user
     return super(OwnedMixin, self).form_valid(form)

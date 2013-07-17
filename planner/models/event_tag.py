@@ -9,6 +9,7 @@ from event import Event
 class EventTag(models.Model):
   event = models.ForeignKey(Event)
   tag = models.ForeignKey(Tag)
+  owner = models.ForeignKey(User)
   class Meta:
     db_table = u'event_tags'
     verbose_name = _('event tag')
