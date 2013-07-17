@@ -1,1 +1,1 @@
-from new_note import NewNoteForm
+from note import NoteForm

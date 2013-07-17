@@ -5,8 +5,7 @@ from django.db.models import Q
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.utils.decorators import method_decorator
-from django.views.generic import TemplateView, ListView
-
+from django.views.generic import ListView
 
 from ..forms.search_note import SearchNoteForm
 from ..models.note import Note

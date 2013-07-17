@@ -1,0 +1,21 @@
+{% extends 'layouts/main.html' %}
+{% load coffeescript %}
+{% load staticfiles %}
+
+{% block content %}
+
+<h3>
+  Note: {{ object.name }}
+  <span class="record-menu">
+    <a href="{% url 'notepad_edit' object.id %}">Edit</a> &middot;
+    <a href="{% url 'notepad_main' %}">Back to Notes</a>
+  </span>
+</h3>
+
+{{ object.note|linebreaks }}
+
+{% endblock %}
+
+{% block js %}
+<script src="{{ STATIC_URL }}{% coffeescript "js/coffee/new_note.coffee" %}"></script>
+{% endblock %}

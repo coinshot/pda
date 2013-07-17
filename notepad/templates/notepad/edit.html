@@ -1,0 +1,15 @@
+{% extends 'layouts/main.html' %}
+{% load coffeescript %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+
+{% block content %}
+
+<h3>Edit Note <span class="record-menu"><a href="{% url 'notepad_main' %}">Back to List</a></span></h3>
+{% crispy form %}
+
+{% endblock %}
+
+{% block js %}
+<script src="{{ STATIC_URL }}{% coffeescript "js/coffee/new_note.coffee" %}"></script>
+{% endblock %}

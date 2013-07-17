@@ -5,7 +5,9 @@ from notepad.views import *
 
 urlpatterns = patterns('',
   url(r'^$', MainNotepadView.as_view(), name='notepad_main'),
+  url(r'^(?P<pk>\d+)/$', ShowNotepadView.as_view(), name='notepad_show_id'),
+  url(r'^(?P<slug>\w+)/$', ShowNotepadView.as_view(), name='notepad_show_slug'),
   url(r'^new/$', NewNotepadView.as_view(), name='notepad_new'),
-  # url(r'^update/(?P<pk>\d+)$', UpdateNotepadView.as_view(), name='tagger_update'),
+  url(r'^edit/(?P<pk>\d+)$', EditNotepadView.as_view(), name='notepad_edit'),
   # url(r'^delete/$', DeleteNotepadView.as_view(), name='tagger_delete'),
 )

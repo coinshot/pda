@@ -9,7 +9,7 @@ from crispy_forms.layout import Submit
 from ..models.note import Note
 
 
-class NewNoteForm(forms.ModelForm):
+class NoteForm(forms.ModelForm):
   class Meta:
     model = Note
     fields = ['name', 'note']
@@ -18,8 +18,8 @@ class NewNoteForm(forms.ModelForm):
     }
 
   def __init__(self, *args, **kwargs):
-    super(NewNoteForm, self).__init__(*args, **kwargs)
+    super(NoteForm, self).__init__(*args, **kwargs)
     self.helper = FormHelper()
-    self.helper.form_id = 'new_note_form'
+    self.helper.form_id = 'note_form'
     self.helper.form_method = 'post'
-    self.helper.add_input(Submit('submit', 'Create Note'))
+    self.helper.add_input(Submit('submit', 'Submit Note'))
