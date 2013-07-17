@@ -1,7 +1,3 @@
-from django.conf import settings
-from django.contrib.auth.decorators import login_required
-from django.http import Http404
-from django.utils.decorators import method_decorator
 from django.views.generic import UpdateView
 
 from lib.mixins.views import LoginRequiredMixin, OwnedMixin

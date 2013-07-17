@@ -1,7 +1,4 @@
-from django.conf import settings
-from django.contrib.auth.decorators import login_required
 from django.db.models import Q
-from django.utils.decorators import method_decorator
 from django.views.generic import ListView
 
 from lib.mixins.views import LoginRequiredMixin, OwnedMixin
