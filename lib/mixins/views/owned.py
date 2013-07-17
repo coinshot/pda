@@ -25,4 +25,7 @@ class OwnedMixin(object):
     Automatically insert user ownership to record before save().
     '''
     form.instance.owner = self.request.user
+    # if form.instance.tags:
+    #   self.save_tag(form)
+
     return super(OwnedMixin, self).form_valid(form)

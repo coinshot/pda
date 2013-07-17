@@ -10,6 +10,8 @@ from ..models.note import Note
 
 
 class NoteForm(forms.ModelForm):
+  tags = forms.CharField()
+
   class Meta:
     model = Note
     fields = ['name', 'note']
