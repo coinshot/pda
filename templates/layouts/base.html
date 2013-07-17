@@ -28,7 +28,7 @@
   <a href="{% url 'tagger_main' %}">Tags</a>
 </div>
 <div class="user-menu">
-  {% if user.id > 0 %}
+  {% if request.user.id > 0 %}
     <a href="{% url 'user_settings' %}">Settings</a>&nbsp;&middot;
     <a href="{% url 'user_logout' %}">Logout</a>
   {% else %}
