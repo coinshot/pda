@@ -11,5 +11,5 @@ urlpatterns = patterns('',
   url(r'^new/$', NewNotepadView.as_view(), name='notepad_new'),
   url(r'^edit/(?P<pk>\d+)$', EditNotepadView.as_view(), name='notepad_edit'),
   # url(r'^edit/(?P<slug>\w+)$', EditNotepadView.as_view(), name='notepad_edit'),
-  # url(r'^delete/$', DeleteNotepadView.as_view(), name='tagger_delete'),
+  url(r'^delete/(?P<pk>\d+)$', DeleteNotepadView.as_view(), name='notepad_delete'),
 )
