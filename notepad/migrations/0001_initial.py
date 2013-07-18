@@ -19,22 +19,10 @@ class Migration(SchemaMigration):
         ))
         db.send_create_signal('notepad', ['Note'])
 
-        # Adding model 'NoteTag'
-        db.create_table(u'note_tags', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('note', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['notepad.Note'])),
-            ('tag', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['tagger.Tag'])),
-            ('owner', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['auth.User'])),
-        ))
-        db.send_create_signal('notepad', ['NoteTag'])
-
 
     def backwards(self, orm):
         # Deleting model 'Note'
         db.delete_table(u'notes')
-
-        # Deleting model 'NoteTag'
-        db.delete_table(u'note_tags')
 
 
     models = {
@@ -82,13 +70,6 @@ class Migration(SchemaMigration):
             'note': ('django.db.models.fields.TextField', [], {}),
             'owner': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['auth.User']"}),
             'updated_at': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'})
-        },
-        'notepad.notetag': {
-            'Meta': {'object_name': 'NoteTag', 'db_table': "u'note_tags'"},
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'note': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['notepad.Note']"}),
-            'owner': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['auth.User']"}),
-            'tag': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['tagger.Tag']"})
         },
         'tagger.tag': {
             'Meta': {'object_name': 'Tag', 'db_table': "u'tags'"},

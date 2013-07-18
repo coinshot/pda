@@ -4,7 +4,7 @@ from django.utils.translation import ugettext, ugettext_lazy as _
 
 
 class Tag(models.Model):
-  name = models.CharField(max_length = 30)
+  name = models.SlugField()
   owner = models.ForeignKey(User)
   created_at = models.DateTimeField(auto_now_add = True)
   updated_at = models.DateTimeField(auto_now = True)

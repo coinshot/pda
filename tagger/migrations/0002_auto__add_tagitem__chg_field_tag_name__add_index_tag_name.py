@@ -8,40 +8,35 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        # Adding model 'Task'
-        db.create_table(u'tasks', (
+        # Adding model 'TagItem'
+        db.create_table(u'tag_items', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('name', self.gf('django.db.models.fields.CharField')(max_length=200)),
-            ('description', self.gf('django.db.models.fields.TextField')()),
-            ('completed', self.gf('django.db.models.fields.BooleanField')(default=False)),
+            ('tag', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['tagger.Tag'])),
             ('owner', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['auth.User'])),
-            ('expected_at', self.gf('django.db.models.fields.DateTimeField')(null=True)),
+            ('content_type', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['contenttypes.ContentType'])),
+            ('object_id', self.gf('django.db.models.fields.PositiveIntegerField')()),
             ('created_at', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
             ('updated_at', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),
         ))
-        db.send_create_signal('tasks', ['Task'])
+        db.send_create_signal('tagger', ['TagItem'])
 
-        # Adding model 'TaskItem'
-        db.create_table(u'task_items', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('name', self.gf('django.db.models.fields.CharField')(max_length=250)),
-            ('completed', self.gf('django.db.models.fields.BooleanField')(default=False)),
-            ('task', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['tasks.Task'])),
-            ('owner', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['auth.User'])),
-            ('expected_at', self.gf('django.db.models.fields.DateTimeField')(null=True)),
-            ('created_at', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
-            ('updated_at', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),
-        ))
-        db.send_create_signal('tasks', ['TaskItem'])
+
+        # Changing field 'Tag.name'
+        db.alter_column(u'tags', 'name', self.gf('django.db.models.fields.SlugField')(max_length=50))
+        # Adding index on 'Tag', fields ['name']
+        db.create_index(u'tags', ['name'])
 
 
     def backwards(self, orm):
-        # Deleting model 'Task'
-        db.delete_table(u'tasks')
+        # Removing index on 'Tag', fields ['name']
+        db.delete_index(u'tags', ['name'])
 
-        # Deleting model 'TaskItem'
-        db.delete_table(u'task_items')
+        # Deleting model 'TagItem'
+        db.delete_table(u'tag_items')
 
+
+        # Changing field 'Tag.name'
+        db.alter_column(u'tags', 'name', self.gf('django.db.models.fields.CharField')(max_length=30))
 
     models = {
         u'auth.group': {
@@ -84,32 +79,20 @@ class Migration(SchemaMigration):
             'Meta': {'object_name': 'Tag', 'db_table': "u'tags'"},
             'created_at': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'max_length': '30'}),
+            'name': ('django.db.models.fields.SlugField', [], {'max_length': '50'}),
             'owner': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['auth.User']"}),
             'updated_at': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'})
         },
-        'tasks.task': {
-            'Meta': {'object_name': 'Task', 'db_table': "u'tasks'"},
-            'completed': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
+        'tagger.tagitem': {
+            'Meta': {'object_name': 'TagItem', 'db_table': "u'tag_items'"},
+            'content_type': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['contenttypes.ContentType']"}),
             'created_at': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
-            'description': ('django.db.models.fields.TextField', [], {}),
-            'expected_at': ('django.db.models.fields.DateTimeField', [], {'null': 'True'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'max_length': '200'}),
+            'object_id': ('django.db.models.fields.PositiveIntegerField', [], {}),
             'owner': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['auth.User']"}),
-            'updated_at': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'})
-        },
-        'tasks.taskitem': {
-            'Meta': {'object_name': 'TaskItem', 'db_table': "u'task_items'"},
-            'completed': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
-            'created_at': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
-            'expected_at': ('django.db.models.fields.DateTimeField', [], {'null': 'True'}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'max_length': '250'}),
-            'owner': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['auth.User']"}),
-            'task': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['tasks.Task']"}),
+            'tag': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['tagger.Tag']"}),
             'updated_at': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'})
         }
     }
 
-    complete_apps = ['tasks']
+    complete_apps = ['tagger']

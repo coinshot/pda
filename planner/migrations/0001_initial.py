@@ -33,15 +33,6 @@ class Migration(SchemaMigration):
         ))
         db.send_create_signal('planner', ['Event'])
 
-        # Adding model 'EventTag'
-        db.create_table(u'event_tags', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('event', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['planner.Event'])),
-            ('tag', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['tagger.Tag'])),
-            ('owner', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['auth.User'])),
-        ))
-        db.send_create_signal('planner', ['EventTag'])
-
         # Adding model 'Location'
         db.create_table(u'locations', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
@@ -83,9 +74,6 @@ class Migration(SchemaMigration):
 
         # Deleting model 'Event'
         db.delete_table(u'events')
-
-        # Deleting model 'EventTag'
-        db.delete_table(u'event_tags')
 
         # Deleting model 'Location'
         db.delete_table(u'locations')
@@ -154,13 +142,6 @@ class Migration(SchemaMigration):
             'start_at': ('django.db.models.fields.DateTimeField', [], {}),
             'updated_at': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
             'whole_day': ('django.db.models.fields.BooleanField', [], {'default': 'False'})
-        },
-        'planner.eventtag': {
-            'Meta': {'object_name': 'EventTag', 'db_table': "u'event_tags'"},
-            'event': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['planner.Event']"}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'owner': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['auth.User']"}),
-            'tag': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['tagger.Tag']"})
         },
         'planner.location': {
             'Meta': {'object_name': 'Location', 'db_table': "u'locations'"},

@@ -151,10 +151,10 @@ INSTALLED_APPS = (
   'polymorphic',
   'south',
   # Project apps
+  'tagger',
   'accounts',
   'notepad',
   'planner',
-  'tagger',
   'tasks',
 )
 
