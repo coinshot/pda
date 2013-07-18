@@ -12,7 +12,7 @@ from ..models.note import Note
 
 
 class NoteForm(TaggedFormMixin, forms.ModelForm):
-  tags = forms.CharField()
+  tags = forms.CharField(required = False)
 
   class Meta:
     model = Note
