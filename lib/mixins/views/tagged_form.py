@@ -43,3 +43,11 @@ class TaggedFormMixin(object):
         # delete relationship. no need to delete the tag
         e.delete()
     return True
+
+  # def get_tags(self)
+
+  def __init__(self, *args, **kwargs):
+    initial = kwargs.get('initial', {})
+    initial['tags'] = 'one_tag_test'
+    kwargs['initial'] = initial
+    super(TaggedFormMixin, self).__init__(*args, **kwargs)
