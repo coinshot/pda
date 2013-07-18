@@ -6,10 +6,12 @@ from django.core.validators import validate_email
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
 
+from lib.mixins.views import TaggedFormMixin
+
 from ..models.note import Note
 
 
-class NoteForm(forms.ModelForm):
+class NoteForm(TaggedFormMixin, forms.ModelForm):
   tags = forms.CharField()
 
   class Meta:

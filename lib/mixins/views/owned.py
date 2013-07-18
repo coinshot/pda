@@ -1,7 +1,15 @@
 class OwnedMixin(object):
   '''
-  Mixin to ensure record/s being worked on are owned by the current user.
+  This mixin ensures that record/s being worked on is owned by the current user.
   '''
+
+  def get_queryset(self):
+    '''
+    Filter queryset to records owned by the current user.
+    '''
+    result = super(OwnedMixin, self).get_queryset()
+    result = result.filter(owner = self.request.user)
+    return result
 
   def get_object(self, queryset = None):
     '''
@@ -12,20 +20,9 @@ class OwnedMixin(object):
       raise Http404
     return obj
 
-  def get_queryset(self):
-    '''
-    Filter queryset to records owned by the current user.
-    '''
-    result = super(OwnedMixin, self).get_queryset()
-    result = result.filter(owner = self.request.user)
-    return result
-
   def form_valid(self, form):
     '''
     Automatically insert user ownership to record before save().
     '''
-    form.instance.owner = self.request.user
-    # if form.instance.tags:
-    #   self.save_tag(form)
-
+    form.instance.owner_id = self.request.user.id
     return super(OwnedMixin, self).form_valid(form)
