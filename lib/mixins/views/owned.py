@@ -26,3 +26,9 @@ class OwnedMixin(object):
     '''
     form.instance.owner_id = self.request.user.id
     return super(OwnedMixin, self).form_valid(form)
+
+  # piggy-back request to initial value in kwargs
+  def get_form_kwargs(self):
+    kwargs = super(OwnedMixin, self).get_form_kwargs()
+    kwargs['initial'] = {'owner':self.request.user}
+    return kwargs

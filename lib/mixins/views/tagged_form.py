@@ -9,15 +9,20 @@ class TaggedFormMixin(object):
   that record being worked on is owned by the current user.
   '''
 
-  def clean_tags(self):
-    tags = self.cleaned_data.get('tags')
-    return tags
+  def __init__(self, *args, **kwargs):
+    instance = kwargs['instance']
+    if instance:
+      owner = kwargs['initial']['owner']
+      tags = self.get_tags(owner, instance)
+      initial = kwargs['initial']
+      initial['tags'] = tags
+      kwargs['initial'] = initial
+    super(TaggedFormMixin, self).__init__(*args, **kwargs)
 
   def save(self):
     instance = super(TaggedFormMixin, self).save()
     tags = self.cleaned_data.get('tags')
     self.save_tags(instance, tags)
-
     return instance
 
   def save_tags(self, instance, tags):
@@ -33,7 +38,6 @@ class TaggedFormMixin(object):
       tag_items.append(tag_item.id)
 
     self.remove_tags(tag_items, owner_id, content_type, instance.id)
-
     return True
 
   def remove_tags(self, current_tag_ids, owner,content_type, object_id):
@@ -44,10 +48,14 @@ class TaggedFormMixin(object):
         e.delete()
     return True
 
-  # def get_tags(self)
+  def get_tags(self, owner, instance):
+    content_type = ContentType.objects.get_for_model(instance)
+    tags = Tag.objects.filter(tagitem__content_type_id=content_type.id, tagitem__object_id=instance.id)
+    tags_str = ""
+    if tags.count() > 0:
+      tags_str = map(get_tag_slug, tags)
+      tags_str = ", ".join(tags_str)
+    return tags_str
 
-  def __init__(self, *args, **kwargs):
-    initial = kwargs.get('initial', {})
-    initial['tags'] = 'one_tag_test'
-    kwargs['initial'] = initial
-    super(TaggedFormMixin, self).__init__(*args, **kwargs)
+def get_tag_slug(tag):
+  return tag.name
