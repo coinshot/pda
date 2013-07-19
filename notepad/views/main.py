@@ -1,13 +1,13 @@
 from django.db.models import Q
 from django.views.generic import ListView
 
-from lib.mixins.views import LoginRequiredMixin, OwnedMixin
+from lib.mixins.views import LoginRequiredMixin, OwnedAndTaggedMixin
 
 from ..forms import SearchNoteForm
 from ..models.note import Note
 
 
-class MainNotepadView(LoginRequiredMixin, OwnedMixin, ListView):
+class MainNotepadView(LoginRequiredMixin, OwnedAndTaggedMixin, ListView):
   model = Note
   template_name = 'notepad/index.html'
 

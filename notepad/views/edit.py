@@ -1,12 +1,12 @@
 from django.views.generic import UpdateView
 
-from lib.mixins.views import LoginRequiredMixin, OwnedMixin
+from lib.mixins.views import LoginRequiredMixin, OwnedAndTaggedMixin
 
 from ..forms import NoteForm
 from ..models.note import Note
 
 
-class EditNotepadView(LoginRequiredMixin, OwnedMixin, UpdateView):
+class EditNotepadView(LoginRequiredMixin, OwnedAndTaggedMixin, UpdateView):
   form_class = NoteForm
   model = Note
   template_name = 'notepad/edit.html'

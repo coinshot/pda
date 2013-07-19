@@ -3,7 +3,6 @@
 {% load staticfiles %}
 
 {% block content %}
-
 <h3>
   Note: {{ object.name }}
   <span class="record-menu">
@@ -11,9 +10,14 @@
     <a href="{% url 'notepad_main' %}">Back to Notes</a>
   </span>
 </h3>
-
-{{ object.note|linebreaks }}
-
+{% if object.tags|length > 0 %}
+  <p class="show-tags">
+    {% for tag in object.tags %}
+      <span class="rounded">{{ tag }}</span>
+    {% endfor %}
+  </p>
+{% endif %}
+<p class="show-note">{{ object.note|linebreaks }}</p>
 {% endblock %}
 
 {% block js %}

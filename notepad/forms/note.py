@@ -3,7 +3,7 @@ from django import forms
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
 
-from lib.mixins.views import TaggedFormMixin
+from lib.mixins.forms import TaggedFormMixin
 
 from ..models.note import Note
 
