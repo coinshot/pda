@@ -1,11 +1,27 @@
+from django.contrib import messages
 from django.contrib.contenttypes.models import ContentType
 
 from tagger.models import Tag, TagItem
+
 
 class OwnedAndTaggedMixin(object):
   '''
   This mixin ensures that record/s being worked on is owned by the current user.
   '''
+
+  def form_valid(self, form):
+    '''
+    Automatically insert user relationship to record before save().
+    '''
+    form.instance.owner_id = self.request.user.id
+    model = form.__class__.__name__.replace('Form', '')
+    messages.add_message(self.request, messages.INFO, ("%s has been saved" % model) )
+    return super(OwnedAndTaggedMixin, self).form_valid(form)
+
+  # def get_success_url(self, form):
+  #   success_url = super(OwnedAndTaggedMixin, self).get_absolute_url(self)
+  #   # print form.get_absolute_url()
+  #   return success_url
 
   def get_queryset(self):
     '''
@@ -25,13 +41,6 @@ class OwnedAndTaggedMixin(object):
     obj.tags = ["test_tag_one", "test_two"]
     obj.tags = self.get_tags()
     return obj
-
-  def form_valid(self, form):
-    '''
-    Automatically insert user relationship to record before save().
-    '''
-    form.instance.owner_id = self.request.user.id
-    return super(OwnedAndTaggedMixin, self).form_valid(form)
 
   def get_form_kwargs(self):
     '''

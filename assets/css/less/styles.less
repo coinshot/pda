@@ -37,6 +37,18 @@ h3 {
   border-radius: 10px;
 }
 
+.transparent {
+  zoom: 1;
+  filter: alpha(opacity=50);
+  opacity: 0.50;
+}
+
+.shadowed {
+  -moz-box-shadow: 1px 1px 3px #888;
+  -webkit-box-shadow: 1px 1px 3px #888;
+  box-shadow: 1px 1px 3px #888;
+}
+
 .clear {
   clear: both;
 }
@@ -185,6 +197,15 @@ div.body {
   float: right;
   position: relative;
   top: -10px;
+}
+
+.messages {
+  display: none;
+  position: fixed;
+  top: -100px;
+  padding: 10px;
+  border: 1px solid red;
+  background-color: white;
 }
 
 

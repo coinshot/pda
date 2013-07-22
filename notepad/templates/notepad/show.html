@@ -19,7 +19,3 @@
 {% endif %}
 <p class="show-note">{{ object.note|linebreaks }}</p>
 {% endblock %}
-
-{% block js %}
-<script src="{{ STATIC_URL }}{% coffeescript "js/coffee/new_note.coffee" %}"></script>
-{% endblock %}

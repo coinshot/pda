@@ -39,7 +39,6 @@ class TaggedFormMixin(object):
     tag_items = []
     if len(tags) > 0:
       tag_list = tags.split(',')
-      tag_items = []
       for e in tag_list:
         e = e.strip()
         tag = Tag.objects.get_or_create(name=e, owner_id=owner_id)[0]

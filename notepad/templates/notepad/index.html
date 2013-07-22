@@ -21,22 +21,11 @@
       <a href="{% url 'notepad_show_id' note.id %}">{{ note.name }}</a>
       <span class="record-controls">
         <a href="{% url 'notepad_edit' note.id %}">Edit</a> &middot;
-        <a href="javascript:void()" onclick="delete_row('{% url 'notepad_delete' note.id %}')">Delete</a>
+        <a class="delete-record" href="#" data="{% url 'notepad_delete' note.id %}">Delete</a>
       </span>
     </div>
   {% endfor %}
   </div>
-  <form id="delete_form" name="delete_form" action="" method="post" class="delete-form">
-    {% csrf_token %}
-  </form>
-  <script type="text/javascript">
-    function delete_row(v) {
-      if ( confirm('Are you sure you want to delete this record?') ) {
-        $('#delete_form').attr('action', v);
-        $('#delete_form').submit();
-      }
-    }
-  </script>
 {% else %}
   <div>No notes found</div>
 {% endif %}
