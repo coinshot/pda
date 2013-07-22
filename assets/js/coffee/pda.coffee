@@ -1,8 +1,10 @@
 PDA =
+  # Constructor / Initializer function
   init: ->
     PDA.showMessages()
     PDA.initializeDelete()
 
+  # Sets up the delete functionality for index pages.
   initializeDelete: ->
     deletes = $('.delete-record')
     if deletes.length > 0
@@ -14,6 +16,7 @@ PDA =
             $('#delete_form').attr('action', $(elem).attr('data'));
             $('#delete_form').submit()
 
+  # Shows the messages div if flash message has been passed.
   showMessages: ->
     if $('.messages').length > 0
       msgBox = $('.messages')
@@ -25,12 +28,20 @@ PDA =
       .bind 'click', (event) =>
         msgBox.fadeOut()
 
+
+  # HTML Functions #####
+
+  # Appends an empty form (except for hidden csrf token) for submitting delete requests.
   insertDeleteForm: (csrf) ->
     $('body').append('
       <form id="delete_form" name="delete_form" action="" method="post" class="delete-form">
         <input type="hidden" name="csrfmiddlewaretoken" value="' + csrf + '" />
       </form>
     ')
+
+
+  # Getter functions #####
+
 
   getWindowCenter: (e) ->
     (($(window).width() - e.width()) / 2)
