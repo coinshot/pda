@@ -16,6 +16,11 @@ Personal Data Assistant app which includes a planner (calendar), task, and notep
         # Installation
         $ pip install django_polymorphic
 
+  * south (http://south.aeracode.org/)
+
+        # Installation
+        $ pip install south
+
 ##### Template & Assets
 
   * django-crispy-forms (http://django-crispy-forms.readthedocs.org/en/latest/install.html#installing-django-crispy-forms)
