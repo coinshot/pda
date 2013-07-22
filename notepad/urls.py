@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, include, url, static
 from django.conf.urls import *
 
-from notepad.views import *
+from .views import *
 
 urlpatterns = patterns('',
   url(r'^$', MainNotepadView.as_view(), name='notepad_main'),

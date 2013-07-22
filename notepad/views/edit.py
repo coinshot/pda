@@ -3,7 +3,7 @@ from django.views.generic import UpdateView
 from lib.mixins.views import LoginRequiredMixin, OwnedAndTaggedMixin
 
 from ..forms import NoteForm
-from ..models.note import Note
+from ..models import Note
 
 
 class EditNotepadView(LoginRequiredMixin, OwnedAndTaggedMixin, UpdateView):

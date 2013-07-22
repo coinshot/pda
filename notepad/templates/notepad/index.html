@@ -12,8 +12,7 @@
 {% if object_list.count > 0 %}
   <form id="search_form" name="search_form" method="get" class="search-form">
     {% csrf_token %}
-    {# <a href="/notepad">Clear</a> #}
-    <input id="search_keyword" name="kw" type="text" placeholder="Search Note" value="{{ request.GET.kw }}">
+    <input id="search_keyword" name="kw" type="text" placeholder="Search Notes" value="{{ request.GET.kw }}">
   </form>
   <div class="records-list clear">
   {% for note in object_list %}

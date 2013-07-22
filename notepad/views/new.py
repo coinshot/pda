@@ -4,7 +4,7 @@ from django.views.generic import CreateView
 from lib.mixins.views import LoginRequiredMixin, OwnedAndTaggedMixin
 
 from ..forms import NoteForm
-from ..models.note import Note
+from ..models import Note
 
 
 class NewNotepadView(LoginRequiredMixin, OwnedAndTaggedMixin, CreateView):

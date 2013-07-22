@@ -1,49 +1,24 @@
-from django.conf import settings
-from django.core.urlresolvers import reverse
-from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render
-from django.views.generic import TemplateView, DetailView, DeleteView
-from django.views.generic.edit import FormView
+from django.db.models import Q
+from django.views.generic import ListView
 
-from ..lib.forms import UpdateTaskForm
-from ..lib.forms import SearchTaskForm
+from lib.mixins.views import LoginRequiredMixin, OwnedAndTaggedMixin
 
+# from ..forms import SearchTaskForm
 from ..models import Task
 
 
-class MainTaskView(FormView):
-  form_class = SearchTaskForm
+class MainTaskView(LoginRequiredMixin, OwnedAndTaggedMixin, ListView):
+  model = Task
   template_name = 'tasks/index.html'
 
-class ShowTaskView(DetailView):
-  model = Task
-  template_name = 'tasks/show.html'
+  def get_queryset(self):
+    try:
+      keyword = self.request.GET.get('kw')
+    except:
+      keyword = False
 
+    result = super(MainTaskView, self).get_queryset()
+    if keyword:
+      result = result.filter(Q(name__icontains = keyword) | Q(note__icontains = keyword))
 
-# class NewView(TemplateView):
-#   template_name = 'tasks/new.html'
-
-# class UpdateView(TemplateView):
-#   template_name = 'tasks/update.html'
-
-# class DeleteView(TemplateView):
-#   template_name = 'tasks/delete.html'
-
-# class SearchView(TemplateView):
-#   template_name = 'tasks/search.html'
-
-# class ItemsView(TemplateView):
-#   template_name = 'tasks/index.html'
-
-# class ItemNewView(TemplateView):
-#   template_name = 'tasks/index.html'
-
-# class ItemShowView(TemplateView):
-#   template_name = 'tasks/index.html'
-
-# class ItemUpdateView(TemplateView):
-#   template_name = 'tasks/index.html'
-
-# class ItemDeleteView(FormView):
-#   template_name = 'tasks/index.html'
-#   form_class = UpdateTaskForm
+    return result

@@ -4,7 +4,7 @@ from django.views.generic import ListView
 from lib.mixins.views import LoginRequiredMixin, OwnedAndTaggedMixin
 
 from ..forms import SearchNoteForm
-from ..models.note import Note
+from ..models import Note
 
 
 class MainNotepadView(LoginRequiredMixin, OwnedAndTaggedMixin, ListView):

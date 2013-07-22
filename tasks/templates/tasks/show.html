@@ -1,1 +1,20 @@
-show.html
+{% extends 'layouts/main.html' %}
+{% load coffeescript %}
+{% load staticfiles %}
+
+{% block content %}
+<h3>
+  Task: {{ object.name }}
+  <span class="record-menu">
+    <a href="{% url 'tasks_edit' object.id %}">Edit</a> &middot;
+    <a href="{% url 'tasks_main' %}">Back to Notes</a>
+  </span>
+</h3>
+{% if object.tags|length > 0 %}
+  <p class="show-tags">
+    {% for tag in object.tags %}
+      <span class="rounded">{{ tag }}</span>
+    {% endfor %}
+  </p>
+{% endif %}
+{% endblock %}

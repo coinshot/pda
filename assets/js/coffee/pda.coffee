@@ -29,7 +29,7 @@ PDA =
         msgBox.fadeOut()
 
 
-  # HTML Functions #####
+  # HTML Insert Functions #####
 
   # Appends an empty form (except for hidden csrf token) for submitting delete requests.
   insertDeleteForm: (csrf) ->
@@ -58,7 +58,6 @@ PDA =
         if cookie.substring(0, name.length + 1) == (name + '=')
           cookieValue = decodeURIComponent(cookie.substring(name.length + 1))
           break
-
     return cookieValue
 
 PDA.init()

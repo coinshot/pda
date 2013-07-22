@@ -1,16 +1,15 @@
 from django.conf.urls import patterns, include, url, static
 from django.conf.urls import *
 
-from views import *
+from .views import *
 
 
-urlpatterns = patterns('pda.tasks.views',
+urlpatterns = patterns('',
   url(r'^$', MainTaskView.as_view(), name='tasks_main'),
-  url(r'^search/$', MainTaskView.as_view(), name='tasks_search'),
-  # url(r'^(?P<pk>\d+)$', ShowTaskView.as_view(), name='tasks_show'),
-  # url(r'^new/$', views.NewView.as_view(), name='tasks_new'),
-  # url(r'^update/(?P<pk>\d+)$', views.UpdateView.as_view(), name='tasks_update'),
-  # url(r'^delete/$', views.DeleteView.as_view(), name='tasks_delete'),
+  url(r'^(?P<pk>\d+)/$', ShowTaskView.as_view(), name='tasks_show_id'),
+  url(r'^new/$', NewTaskView.as_view(), name='tasks_new'),
+  url(r'^edit/(?P<pk>\d+)$', EditTaskView.as_view(), name='tasks_edit'),
+  url(r'^delete/(?P<pk>\d+)$', DeleteTaskView.as_view(), name='tasks_delete'),
   # # Task Items Routes
   # url(r'^items/(?P<fk>\d+)$', views.ItemsView.as_view(), name='tasks_items'),
   # url(r'^items/(?P<fk>\d+)/new/$', views.ItemNewView.as_view(), name='tasks_item_new'),

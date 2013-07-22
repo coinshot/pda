@@ -3,7 +3,7 @@ from django.views.generic import DetailView
 
 from lib.mixins.views import LoginRequiredMixin, OwnedAndTaggedMixin
 
-from ..models.note import Note
+from ..models import Note
 
 
 class ShowNotepadView(LoginRequiredMixin, OwnedAndTaggedMixin, DetailView):
