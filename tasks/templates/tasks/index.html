@@ -10,16 +10,16 @@
   </span>
 </h3>
 {% if object_list.count > 0 %}
-  {# <form id="search_form" name="search_form" method="get" class="search-form">
+  <form id="search_form" name="search_form" method="get" class="search-form">
     {% csrf_token %}
     <input id="search_keyword" name="kw" type="text" placeholder="Search Tasks" value="{{ request.GET.kw }}">
-  </form> #}
+  </form>
   <div class="records-list clear">
   {% for task in object_list %}
     <div class="record-row clear">
       <a href="{% url 'tasks_show_id' task.id %}">{{ task.name }}</a>
       <span class="record-controls">
-        <a href="{% url 'tasks_edit' note.id %}">Edit</a> &middot;
+        <a href="{% url 'tasks_edit' task.id %}">Edit</a> &middot;
         <a class="delete-record" href="#" data="{% url 'tasks_delete' task.id %}">Delete</a>
       </span>
     </div>

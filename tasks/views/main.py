@@ -19,6 +19,6 @@ class MainTaskView(LoginRequiredMixin, OwnedAndTaggedMixin, ListView):
 
     result = super(MainTaskView, self).get_queryset()
     if keyword:
-      result = result.filter(Q(name__icontains = keyword) | Q(note__icontains = keyword))
+      result = result.filter(Q(name__icontains = keyword) | Q(description__icontains = keyword))
 
     return result

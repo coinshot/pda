@@ -31,6 +31,11 @@ h3 {
   border-bottom: 1px solid green;
 }
 
+h4 {
+  margin: 0;
+  padding: 0;
+}
+
 .rounded {
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -123,7 +128,6 @@ div.body {
 
 //-- Index (List) Styles -----
 .records-list {
-  margin-top: 50px;
 
   .record-row {
     margin: 2px;
@@ -145,8 +149,21 @@ div.body {
     color: grey;
     border: 1px solid #CCC;
     font-size: 12px;
-    // background-color: #CCC;
   }
+}
+
+.right-panel {
+  padding: 10px;
+  float: right;
+  width: 250px;
+  border: 1px solid lightgrey;
+}
+.right-panel:hover {
+  background-color: white;
+}
+
+.left-panel {
+  margin-right: 280px;
 }
 
 
@@ -164,8 +181,13 @@ div.body {
 .controls {
   font-family: @font-family;
 
-  input {
+  input[type=text] {
     width: 600px;
+  }
+  input[type=checkbox] {
+  }
+  label.checkbox {
+    margin-left: 100px;
   }
 
   textarea {
@@ -173,6 +195,10 @@ div.body {
     height: 250px;
     font-size: 12px;
     font-family: @font-family;
+  }
+
+  textarea.short-description {
+    height: 50px;
   }
 
   .help-block {

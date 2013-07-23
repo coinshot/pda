@@ -13,14 +13,17 @@ class TaskForm(TaggedFormMixin, forms.ModelForm):
 
   class Meta:
     model = Task
-    fields = ['name', 'description', 'expected_at']
+    fields = ['name', 'description', 'expected_at', 'tags', 'completed']
     widget = {
-      'note': forms.Textarea(),
+      'description': forms.Textarea(),
       'expected_at': forms.DateTimeInput(),
     }
 
   def __init__(self, *args, **kwargs):
     super(TaskForm, self).__init__(*args, **kwargs)
+    self.fields['expected_at'].required = False
+    self.fields['expected_at'].label = 'Due Date'
+    self.fields['description'].widget.attrs['class'] = 'short-description'
     self.helper = FormHelper()
     self.helper.form_id = 'task_form'
     self.helper.form_method = 'post'

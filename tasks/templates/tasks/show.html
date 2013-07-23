@@ -7,14 +7,35 @@
   Task: {{ object.name }}
   <span class="record-menu">
     <a href="{% url 'tasks_edit' object.id %}">Edit</a> &middot;
-    <a href="{% url 'tasks_main' %}">Back to Notes</a>
+    <a href="{% url 'tasks_main' %}">Back to Tasks</a>
   </span>
 </h3>
 {% if object.tags|length > 0 %}
-  <p class="show-tags">
-    {% for tag in object.tags %}
-      <span class="rounded">{{ tag }}</span>
-    {% endfor %}
-  </p>
+  <div class="right-panel rounded">
+    <div>{{ object.description }}</div><br>
+    <div>Status: {% if object.completed %}Completed{% else %}Open{% endif %}</div>
+    {% if object.expected_at %}<div>Due: {{ object.expected_at|date:"D d F Y h:i a" }}</div>{% endif %}
+    <br>
+    <p class="show-tags">
+      {% for tag in object.tags %}
+        <span class="rounded">{{ tag }}</span>
+      {% endfor %}
+    </p>
+  </div>
+  <div class="left-panel">
+    <h4>Items</h4>
+    {% if task_items|length > 0 %}
+      <div class="records-list">
+      {% for item in task_items %}
+        <div class="record-row">
+          {{ item.name }}
+        </div>
+      {% endfor %}
+      </div>
+    {% else %}
+      <div>No items listed</div>
+    {% endif %}
+    {{ test_variable }}
+  </div>
 {% endif %}
 {% endblock %}

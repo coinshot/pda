@@ -3,6 +3,7 @@ PDA =
   init: ->
     PDA.showMessages()
     PDA.initializeDelete()
+    PDA.initializeForms()
 
   # Sets up the delete functionality for index pages.
   initializeDelete: ->
@@ -15,6 +16,9 @@ PDA =
           if confirm('Are you sure you want to delete this record?')
             $('#delete_form').attr('action', $(elem).attr('data'));
             $('#delete_form').submit()
+
+  initializeForms: ->
+    $('.datetimeinput').datetimepicker({dateFormat: 'yy-mm-dd'});
 
   # Shows the messages div if flash message has been passed.
   showMessages: ->
