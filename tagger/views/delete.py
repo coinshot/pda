@@ -9,7 +9,7 @@ from ..lib.forms import *
 
 
 class DeleteTagView(FormView):
-  template_name = 'tagger/delete.html'
+  template_name = 'tagger/delete.haml'
   form_class = UpdateTagForm
 
   def get(self, request, *args, **kwargs):

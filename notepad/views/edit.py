@@ -9,5 +9,5 @@ from ..models import Note
 class EditNotepadView(LoginRequiredMixin, OwnedAndTaggedMixin, UpdateView):
   form_class = NoteForm
   model = Note
-  template_name = 'notepad/edit.html'
+  template_name = 'notepad/edit.haml'
   success_url = "/notepad/%(id)s/"

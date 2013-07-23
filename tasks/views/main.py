@@ -9,7 +9,7 @@ from ..models import Task
 
 class MainTaskView(LoginRequiredMixin, OwnedAndTaggedMixin, ListView):
   model = Task
-  template_name = 'tasks/index.html'
+  template_name = 'tasks/index.haml'
 
   def get_queryset(self):
     try:

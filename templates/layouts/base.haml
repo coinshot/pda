@@ -1,0 +1,70 @@
+- load compress
+- load less
+- load coffeescript
+- load staticfiles
+!!! 5
+%html
+  %head
+    %title
+      PDA
+      - block page_title
+    - compress css
+      %link{'type':"text/css", 'rel':"stylesheet", 'href':"{{ STATIC_URL }}{% less 'css/less/styles.less' %}"}
+      %link{'type':"text/css", 'rel':"stylesheet", 'href':"{{ STATIC_URL }}uni_form/uni-form.css"}
+      %link{'type':"text/css", 'rel':"stylesheet", 'href':"{{ STATIC_URL }}uni_form/default.uni-form.css"}
+      %link{'type':"text/css", 'rel':"stylesheet", 'href':"{{ STATIC_URL }}css/jquery-ui/jquery-ui-timepicker-addon.css"}
+      - block css
+
+    %link{'type':"text/css", 'rel':"stylesheet", 'href':"//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"}
+
+  %body
+    %header
+      .main-menu
+        %a{'href':"/"} Home
+        &middot;
+        %a{'href':"{% url 'planner_main' %}"} Planner
+        &middot;
+        %a{'href':"{% url 'tasks_main' %}"} Tasks
+        &middot;
+        %a{'href':"{% url 'notepad_main' %}"} Notepad
+        &middot;
+        %a{'href':"{% url 'tagger_main' %}"} Tags
+
+      .user-menu
+        - if request.user.id > 0
+          %a{'href':"{% url 'user_settings' %}"} Settings
+          &middot;
+          %a{'href':"{% url 'user_logout' %}"} Logout
+        - else
+          %a{'href':"{% url 'user_login' %}"} Login
+          or
+          %a{'href':"{% url 'user_signup' %}"} Signup
+
+      .site-title.rounded.shadowed
+        %h2.text-shadowed Django-PDA (Personal Digital Assistant)
+
+    .body
+      .content-wrapper
+        - block content
+      %br
+
+    - if messages
+      .messages.rounded.shadowed
+        - for message in messages
+          %div= message
+
+    %footer
+      .rounded.debug
+        %div
+          %strong Debug
+          %br
+          request.user: {{ user.id }}
+          %br
+
+    %script{'type':"text/javascript", 'src':"//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"}
+    %script{'type':"text/javascript", 'src':"//code.jquery.com/ui/1.10.3/jquery-ui.js"}
+    - compress js
+      %script{'type':"text/javascript", 'src':"{{ STATIC_URL }}uni_form/uni-form.jquery.js"}
+      %script{'type':"text/javascript", 'src':"{{ STATIC_URL }}js/jquery-ui/jquery-ui-timepicker-addon.js"}
+      %script{'type':"text/javascript", 'src':"{{ STATIC_URL }}{% coffeescript 'js/coffee/pda.coffee' %}"}
+      - block js

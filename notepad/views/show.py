@@ -8,5 +8,5 @@ from ..models import Note
 
 class ShowNotepadView(LoginRequiredMixin, OwnedAndTaggedMixin, DetailView):
   model = Note
-  template_name = 'notepad/show.html'
+  template_name = 'notepad/show.haml'
 

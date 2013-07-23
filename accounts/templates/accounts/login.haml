@@ -1,0 +1,16 @@
+- extends "site/home_base.haml"
+
+- block content
+  %h3 User Login
+
+  - if form.errors
+    %p.error-message Your username and password didn't match. Please try again.
+
+  %form.login-form{'method':"post", 'action':"{% url 'django.contrib.auth.views.login' %}"}
+    - csrf_token
+    {{ form.username.label_tag }}{{ form.username }}
+    %br
+    {{ form.password.label_tag }}{{ form.password }}
+    %br
+    %input{'type':"submit", 'value':"Login"}
+    %input{'type':"hidden", 'name':"next", 'value':"{{ next }}"}

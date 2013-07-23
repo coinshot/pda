@@ -9,7 +9,7 @@ from ..models import Note
 
 class MainNotepadView(LoginRequiredMixin, OwnedAndTaggedMixin, ListView):
   model = Note
-  template_name = 'notepad/index.html'
+  template_name = 'notepad/index.haml'
 
   def get_queryset(self):
     try:

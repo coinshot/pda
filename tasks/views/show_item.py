@@ -8,7 +8,7 @@ from ..models import Task, TaskItem
 
 class ShowItemView(LoginRequiredMixin, OwnedAndTaggedMixin, DetailView):
   model = Task
-  template_name = 'tasks/show.html'
+  template_name = 'tasks/show.haml'
 
   # def get_context_data(self, **kwargs):
   #   context = super(ShowItemView, self).get_context_data(**kwargs)

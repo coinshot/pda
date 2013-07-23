@@ -1,0 +1,23 @@
+- extends 'layouts/main.html'
+- load crispy_forms_tags
+
+- block content
+  %h3
+    Tasks
+    %span.record-menu
+      %a{'href':"{% url 'tasks_new' %}"} Create Task
+
+  - if object_list.count > 0
+    %form.search-form{'id':"search_form", 'name':"search_form", 'method':"get"}
+      - csrf_token
+      %input{'id':"search_keyword", 'name':"kw", 'type':"text", 'placeholder':"Search Tasks", 'value':"{{ request.GET.kw }}"}
+    .records-list.clear
+      - for task in object_list
+        .record-row.clear
+          %a{'href':"{% url 'tasks_show_id' task.id %}"}= task.name
+          %span.record-controls
+            %a{'href':"{% url 'tasks_edit' task.id %}"} Edit
+            &middot;
+            %a.delete-record{'href':"#", 'data':"{% url 'tasks_delete' task.id %}"} Delete
+  - else
+    %div No Tasks found

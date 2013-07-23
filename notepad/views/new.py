@@ -10,5 +10,5 @@ from ..models import Note
 class NewNotepadView(LoginRequiredMixin, OwnedAndTaggedMixin, CreateView):
   form_class = NoteForm
   model = Note
-  template_name = 'notepad/new.html'
+  template_name = 'notepad/new.haml'
   success_url = "/notepad/%(id)s/"

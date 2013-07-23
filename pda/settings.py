@@ -112,6 +112,8 @@ SECRET_KEY = ')ypjla)844uf(s-f&d-0@n0$2&!mg#l7q72wf1dy5nyz3v!n^^'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
+  'hamlpy.template.loaders.HamlPyFilesystemLoader',
+  'hamlpy.template.loaders.HamlPyAppDirectoriesLoader',
   'django.template.loaders.filesystem.Loader',
   'django.template.loaders.app_directories.Loader',
   # 'django.template.loaders.eggs.Loader',

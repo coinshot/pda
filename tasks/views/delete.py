@@ -8,7 +8,7 @@ from ..models import Task
 
 class DeleteTaskView(LoginRequiredMixin, OwnedAndTaggedMixin, DeleteView):
   model = Task
-  template_name = 'tasks/delete.html'
+  template_name = 'tasks/delete.haml'
 
   def get_success_url(self):
     model = self.__class__.__name__.replace('Delete', '').replace('padView', '')

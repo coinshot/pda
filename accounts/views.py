@@ -25,7 +25,7 @@ def register_view(request):
   else:
     form = UserRegistrationForm()
 
-  return render(request, "accounts/register.html", { 'form': form, })
+  return render(request, "accounts/register.haml", { 'form': form, })
 
 def settings_view(request):
   return HttpResponseRedirect(reverse('home_page'))

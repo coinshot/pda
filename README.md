@@ -23,6 +23,18 @@ Personal Data Assistant app which includes a planner (calendar), task, and notep
 
 ##### Template & Assets
 
+  * hamlpy (https://github.com/jessemiller/HamlPy)
+
+        # Installation
+        $ pip install hamlpy
+
+        # Add hamlpy to Django template loaders
+        TEMPLATE_LOADERS = (
+          'hamlpy.template.loaders.HamlPyFilesystemLoader',
+          'hamlpy.template.loaders.HamlPyAppDirectoriesLoader',
+          ...
+        )
+
   * django-crispy-forms (http://django-crispy-forms.readthedocs.org/en/latest/install.html#installing-django-crispy-forms)
 
         # Installation

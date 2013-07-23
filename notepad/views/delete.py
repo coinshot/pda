@@ -8,7 +8,7 @@ from ..models import Note
 
 class DeleteNotepadView(LoginRequiredMixin, OwnedAndTaggedMixin, DeleteView):
   model = Note
-  template_name = 'notepad/delete.html'
+  template_name = 'notepad/delete.haml'
 
   def get_success_url(self):
     model = self.__class__.__name__.replace('Delete', '').replace('padView', '')

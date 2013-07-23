@@ -9,5 +9,5 @@ from ..models import Task
 class EditTaskView(LoginRequiredMixin, OwnedAndTaggedMixin, UpdateView):
   form_class = TaskForm
   model = Task
-  template_name = 'tasks/edit.html'
+  template_name = 'tasks/edit.haml'
   success_url = "/tasks/%(id)s/"

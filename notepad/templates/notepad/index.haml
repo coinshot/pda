@@ -1,0 +1,22 @@
+- extends 'layouts/main.html'
+- load crispy_forms_tags
+
+- block content
+  %h3
+    Notepad
+    %span.record-menu
+      %a{'href':"{% url 'notepad_new' %}"} Create New Note
+  - if object_list.count > 0
+    %form.search-form{'id':"search_form", 'name':"search_form", 'method':"get"}
+      - csrf_token
+      %input{'id':"search_keyword", 'name':"kw", 'type':"text", 'placeholder':"Search Notes", 'value':"{{ request.GET.kw }}"}
+    .records-list.clear
+      - for note in object_list
+        .record-row.clear
+          %a{'href':"{% url 'notepad_show_id' note.id %}"}= note.name
+          %span.record-controls
+            %a{'href':"{% url 'notepad_edit' note.id %}"} Edit
+            &middot;
+            %a.delete-record{'href':"#", 'data':"{% url 'notepad_delete' note.id %}"} Delete
+  - else
+    %div No notes found

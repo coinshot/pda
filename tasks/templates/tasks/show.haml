@@ -1,0 +1,38 @@
+- extends 'layouts/main.html'
+- load coffeescript
+- load staticfiles
+
+- block content
+  %h3
+    Task: {{ object.name }}
+    %span.record-menu
+      %a{'href':"{% url 'tasks_edit' object.id %}"} Edit
+      &middot;
+      %a{'href':"{% url 'tasks_main' %}"} Back to Tasks
+
+  - if object.tags|length > 0
+    .right-panel.rounded
+      %div= object.description
+      %br
+      %div
+        Status:
+        - if object.completed
+          Completed
+        - else
+          Open
+      - if object.expected_at
+        %div Due: {{ object.expected_at|date:"D d F Y h:i a" }}
+      %br
+
+      %p.show-tags
+        - for tag in object.tags
+          %span.rounded= tag
+
+    .left-panel
+      %h4 Items
+      - if task_items|length > 0
+        .records-list
+        - for item in task_items
+          .record-row= item.name
+      - else
+        %div No items listed

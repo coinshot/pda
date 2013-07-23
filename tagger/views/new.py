@@ -9,5 +9,5 @@ from ..lib.forms import NewTagForm
 
 
 class NewTagView(FormView):
-  template_name = 'tagger/new.html'
+  template_name = 'tagger/new.haml'
   form_class = NewTagForm

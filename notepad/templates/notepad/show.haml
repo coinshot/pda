@@ -1,0 +1,16 @@
+- extends 'layouts/main.html'
+- load coffeescript
+- load staticfiles
+
+- block content
+  %h3
+    Note: {{ object.name }}
+    %span.record-menu
+      %a{'href':"{% url 'notepad_edit' object.id %}"} Edit
+      &middot;
+      %a{'href':"{% url 'notepad_main' %}"} Back to Notes
+  - if object.tags|length > 0
+    %p.show-tags
+      - for tag in object.tags
+        %span.rounded= tag
+  %p.show-note= object.note|linebreaks
