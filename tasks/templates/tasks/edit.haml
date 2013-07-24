@@ -1,7 +1,5 @@
-- extends 'layouts/main.html'
-- load coffeescript
+- extends 'tasks/common.haml'
 - load crispy_forms_tags
-- load staticfiles
 
 - block content
   %h3
@@ -10,5 +8,3 @@
       %a{'href':"{% url 'tasks_main' %}"} Back to List
   - crispy form
 
-- block js
-  %script{'src':"{{ STATIC_URL }}{% coffeescript 'js/coffee/task_form.js.coffee' %}"}

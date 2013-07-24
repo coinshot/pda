@@ -1,7 +1,5 @@
-- extends 'layouts/main.html'
-- load coffeescript
+- extends 'notepad/common.haml'
 - load crispy_forms_tags
-- load staticfiles
 
 - block content
   %h3
@@ -9,6 +7,3 @@
     %span.record-menu
       %a{'href':"{% url 'notepad_main' %}"} Back to List
   {% crispy form %}
-
-- block js
-  %script{'src':"{{ STATIC_URL }}{% coffeescript 'js/coffee/note_form.js.coffee' %}"}

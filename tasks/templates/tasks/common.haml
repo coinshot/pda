@@ -1,0 +1,8 @@
+- extends 'layouts/main.haml'
+- load coffeescript
+- load staticfiles
+
+- block content
+
+- block js
+  %script{'src':"{{ STATIC_URL }}{% coffeescript 'js/coffee/task.js.coffee' %}"}
