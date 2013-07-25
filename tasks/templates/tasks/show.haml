@@ -1,6 +1,7 @@
 - extends 'tasks/common.haml'
 - load coffeescript
 - load staticfiles
+- load less
 
 - block content
   %h3
@@ -30,9 +31,16 @@
 
     .left-panel
       %h4 Items
-      - if task_items|length > 0
-        .records-list
-        - for item in task_items
-          .record-row= item.name
-      - else
-        %div No items listed
+      %form{'method':'post', 'class':'new-task-item-form' }
+        %input{'type':'hidden', 'name':'csrfmiddlewaretoken', 'class':'csrfmiddlewaretoken'}
+        New Task:
+        %input{'type':'text', 'name':'name' }
+      .task-records-list
+        - if task_items|length > 0
+          - for item in task_items
+            .record-row= item.name
+        - else
+          .no-task No items listed
+
+- block css
+  %link{'type':"text/css", 'rel':"stylesheet", 'href':"{{ STATIC_URL }}{% less 'css/less/task.css.less' %}"}
