@@ -150,7 +150,6 @@ INSTALLED_APPS = (
   'compressor',
   'crispy_forms',
   'less',
-  'polymorphic',
   'south',
   # Project apps
   'tagger',

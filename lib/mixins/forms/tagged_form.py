@@ -1,5 +1,7 @@
 from django.contrib.contenttypes.models import ContentType
 
+from lib.helpers import get_tag_slug
+
 from tagger.models import Tag, TagItem
 
 class TaggedFormMixin(object):
@@ -67,11 +69,3 @@ class TaggedFormMixin(object):
       tags_str = map(get_tag_slug, tags)
       tags_str = ", ".join(tags_str)
     return tags_str
-
-
-def get_tag_slug(tag):
-  '''
-  Used for map iteration to get the tag keyword/slug.
-  '''
-  return tag.name
-

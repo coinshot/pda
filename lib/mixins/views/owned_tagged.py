@@ -1,6 +1,8 @@
 from django.contrib import messages
 from django.contrib.contenttypes.models import ContentType
 
+from lib.helpers import get_tag_slug
+
 from tagger.models import Tag, TagItem
 
 
@@ -62,10 +64,4 @@ class OwnedAndTaggedMixin(object):
     if tags:
       tags_list = map(get_tag_slug, tags)
     return tags_list
-
-def get_tag_slug(tag):
-  '''
-  Used for map iteration to get the tag keyword/slug.
-  '''
-  return tag.name
 

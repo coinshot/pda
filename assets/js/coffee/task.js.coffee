@@ -1,4 +1,4 @@
-TASK =
+window.TASK =
   init: ->
     TASK.prepareNewItemForm()
     TASK.focusForm()
@@ -7,7 +7,7 @@ TASK =
     $('#id_name').focus() if $('#id_name').length > 0
 
   prepareNewItemForm: ->
-    csrf = TASK.getCookie('csrftoken')
+    csrf = PDA.getCookie('csrftoken')
     $('.csrfmiddlewaretoken').val(csrf)
 
   getCookie: (name) ->

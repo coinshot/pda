@@ -1,4 +1,4 @@
-PDA =
+window.PDA =
   # Constructor / Initializer function
   init: ->
     PDA.showMessages()
