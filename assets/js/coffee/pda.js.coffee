@@ -11,10 +11,10 @@ window.PDA =
     if deletes.length > 0
       csrf = PDA.getCookie('csrftoken')
       PDA.insertDeleteForm(csrf)
-      deletes.each (i, elem) =>
-        $(elem).click =>
+      deletes.each (i, element) =>
+        $(element).click =>
           if confirm('Are you sure you want to delete this record?')
-            $('#delete_form').attr('action', $(elem).attr('data'));
+            $('#delete_form').attr('action', $(element).attr('data'));
             $('#delete_form').submit()
 
   initializeForms: ->
