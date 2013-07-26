@@ -14,9 +14,7 @@ class ShowTaskView(LoginRequiredMixin, OwnedAndTaggedMixin, DetailView):
     context = super(ShowTaskView, self).get_context_data(**kwargs)
     if context['task'].id:
       context['task_items'] = self.get_task_items(context['task'].id)
-    print "CONTEXT: ", context
     return context
 
   def get_task_items(self, task_id):
-    print "TASK: ", task_id
     return TaskItem.objects.filter(task_id=task_id)

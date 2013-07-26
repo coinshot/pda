@@ -5,33 +5,33 @@
 
 - block content
   %h3
-    Task: {{ object.name }}
+    Task: {{ task.name }}
     %span.record-menu
-      %a{'href':"{% url 'tasks_edit' object.id %}"} Edit
+      %a{'href':"{% url 'tasks_edit' task.id %}"} Edit
       &middot;
       %a{'href':"{% url 'tasks_main' %}"} Back to Tasks
 
-  - if object.tags|length > 0
+  - if task.tags|length > 0
     .right-panel.rounded
-      %div= object.description
+      %div= task.description
       %br
       %div
         Status:
-        - if object.completed
+        - if task.completed
           Completed
         - else
           Open
-      - if object.expected_at
-        %div Due: {{ object.expected_at|date:"D d F Y h:i a" }}
+      - if task.expected_at
+        %div Due: {{ task.expected_at|date:"D d F Y h:i a" }}
       %br
 
       %p.show-tags
-        - for tag in object.tags
+        - for tag in task.tags
           %span.rounded= tag
 
     .left-panel
       %h4 Items
-      %div OBJECT ID: {{ object.id }}
+      %div OBJECT ID: {{ task.id }}
       %form{'method':'post', 'class':'new-task-item-form' }
         %input{'type':'hidden', 'name':'csrfmiddlewaretoken', 'class':'csrfmiddlewaretoken'}
         New Task:

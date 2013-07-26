@@ -10,10 +10,11 @@ urlpatterns = patterns('',
   url(r'^new/$', NewTaskView.as_view(), name='tasks_new'),
   url(r'^edit/(?P<pk>\d+)$', EditTaskView.as_view(), name='tasks_edit'),
   url(r'^delete/(?P<pk>\d+)$', DeleteTaskView.as_view(), name='tasks_delete'),
-  # # Task Items Routes
+
+  # Task Items Routes
   url(r'^(?P<fk>\d+)/show/(?P<pk>\d+)$', ShowItemView.as_view(), name='tasks_item_show'),
-  # url(r'^items/(?P<fk>\d+)$', ItemsView.as_view(), name='tasks_items'),
-  # url(r'^items/(?P<fk>\d+)/new/$', views.ItemNewView.as_view(), name='tasks_item_new'),
-  # url(r'^items/(?P<fk>\d+)/update/(?P<pk>\d+)$', views.ItemUpdateView.as_view(), name='tasks_item_update'),
-  # url(r'^items/(?P<fk>\d+)/delete/$', views.ItemDeleteView.as_view(), name='tasks_item_delete'),
+  url(r'^task_items/edit/(?P<pk>\d+)$', EditItemView.as_view(), name='tasks_item_edit'),
+  url(r'^task_item/new/$', create_task_item, name='task_item_new'),
+  url(r'^task_item/delete/(?P<pk>\d+)$', delete_task_item, name='task_item_delete'),
 )
+
