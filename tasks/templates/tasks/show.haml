@@ -39,15 +39,12 @@
       .task-records-list
         - if task_items|length > 0
           - for item in task_items
-            .record-row= item.name
+            .record-row
+              %a{'href':"{% url 'tasks_item_edit' fk=item.task_id pk=item.id %}"}= item.name
+              %span.record-controls
+                %a.delete-record{'href':"#", 'data':"{% url 'task_item_delete' item.id %}"} Delete
         - else
           .no-task No items listed
-
-  .test-div
-    %br
-    %br
-    %br
-    %a{'href':'#', 'class':'test'} Fetch Test
 
 - block css
   %link{'type':"text/css", 'rel':"stylesheet", 'href':"{{ STATIC_URL }}{% less 'css/less/task.css.less' %}"}

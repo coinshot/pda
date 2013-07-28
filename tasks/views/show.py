@@ -17,4 +17,4 @@ class ShowTaskView(LoginRequiredMixin, OwnedAndTaggedMixin, DetailView):
     return context
 
   def get_task_items(self, task_id):
-    return TaskItem.objects.filter(task_id=task_id)
+    return TaskItem.objects.filter(task_id=task_id).order_by('created_at')

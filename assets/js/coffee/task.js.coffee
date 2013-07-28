@@ -1,6 +1,7 @@
 window.TASK =
   init: ->
-    TASK.prepareNewItemForm()
+    TASK.setupNewItemForm()
+    TASK.setupDeleteItem()
     TASK.focusForm()
 
   focusForm: ->
@@ -12,7 +13,7 @@ window.TASK =
         $(this).animate({ width: '-=250' })
     return 1
 
-  prepareNewItemForm: ->
+  setupNewItemForm: ->
     if $('.new-task-item-form').length > 0
       csrf = PDA.getCookie('csrftoken')
       $('.csrfmiddlewaretoken').val(csrf)
@@ -38,5 +39,7 @@ window.TASK =
   insertNewRecord: (record_id, record_name) ->
     alert('New Task Item (' + record_id + ': ' + record_name + ') saved')
 
+  setupDeleteItem: ->
+    return 1
 
 TASK.init()
