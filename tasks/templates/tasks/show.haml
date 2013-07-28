@@ -43,5 +43,11 @@
         - else
           .no-task No items listed
 
+  .test-div
+    %br
+    %br
+    %br
+    %a{'href':'#', 'class':'test'} Fetch Test
+
 - block css
   %link{'type':"text/css", 'rel':"stylesheet", 'href':"{{ STATIC_URL }}{% less 'css/less/task.css.less' %}"}
