@@ -20,11 +20,10 @@ window.TASK =
 
       $('.new-task-item-form').submit (e) =>
         post_data = $('.new-task-item-form').serialize()
-        alert "form submit called: " + post_data
         $.post('/tasks/task_item/new/', post_data, (data)=>
-          alert ("(" + data.status + ") ID: " + data.record_id + ", " + data.record_name)
+          $('#task_item_name').val('')
           if data.status == 'success'
-            TASK.insertNewRecord(data.record_id, data.record_name)
+            TASK.insertNewRecord(data.task_id, data.record_id, data.record_name)
           else
             TASK.flashNewItemError()
         )
@@ -36,8 +35,16 @@ window.TASK =
   flashNewItemError: ->
     alert('Error saving new Task Item')
 
-  insertNewRecord: (record_id, record_name) ->
-    alert('New Task Item (' + record_id + ': ' + record_name + ') saved')
+  insertNewRecord: (task_id, record_id, record_name) ->
+    html = '
+    <div class="record-row">
+      <a href="/tasks/' + task_id + '/task_items/edit/' + record_id + '">' + record_name + '</a>
+      <span class="record-controls">
+      <a class="delete-record" data="/tasks/task_item/delete/' + record_id + '" href="#">Delete</a>
+      </span>
+    </div>
+    '
+    $('.task-records-list').append(html)
 
   setupDeleteItem: ->
     return 1
